@@ -1,0 +1,14 @@
+.btn-category {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  border: none;
+}
+
+.btn-category:hover {
+  background-color: #76323f !important;
+  color: white !important;
+}
