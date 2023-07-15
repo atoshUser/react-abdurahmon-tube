@@ -30,8 +30,8 @@ const Main = () => {
         selectedCategory={selectedCategory}
         setSelectedCategoryHandler={setSelectedCategoryHandler}
       />
-      <Box>
-        <Container maxWidth={"80%"}>
+      <Container maxWidth="90%">
+        <Box>
           <Typography
             variant={"h4"}
             fontWeight={"bold"}
@@ -44,8 +44,8 @@ const Main = () => {
             <span style={{ color: color.secondary }}>Videos</span>
           </Typography>
           <Videos dataVideos={dataVideos} />
-        </Container>
-      </Box>
+        </Box>
+      </Container>
     </Stack>
   );
 };
