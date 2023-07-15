@@ -19,7 +19,8 @@ export const logo = {
 };
 export const color = {
   primary: "#fcfaf5",
-  secondary: "#76523f",
+  white:"white",
+  secondary: "#76323f",
 };
 
 export const categories = [
