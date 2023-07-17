@@ -3,19 +3,21 @@ import React from "react";
 import { VideoCard } from "../index";
 
 const Videos = ({ dataVideos }) => {
-  console.log(dataVideos);
   return (
     <Stack
-      direction={"row"}
-      flexWrap={"wrap"}
-      justifyContent={"start"}
-      gap={"15px"}
-      maxWidth={"100%"}
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))",
+        gridAutoFlow: "dense",
+        gridAutoRows: "auto",
+      }}
+      gap={"20px"}
     >
       {dataVideos.map((item) => {
         return (
           <Box key={item.id.videoId}>
             {item.id.videoId && <VideoCard video={item} />}
+            {item.id.channelId && <VideoCard video={item} />}
           </Box>
         );
       })}

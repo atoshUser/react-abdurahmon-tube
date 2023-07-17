@@ -1,13 +1,21 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  CircularProgress,
+  Container,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { color } from "../constants";
 import { Category } from "../";
 import React, { useState, useEffect } from "react";
 import ApiServise from "../service/service.api";
 import { Videos } from "../index";
+import "./site-main.css";
 const Main = () => {
   const [dataVideos, setDataVideos] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("New");
 
+ 
   useEffect(() => {
     // const getData = async () => {
     //   try {
@@ -21,7 +29,7 @@ const Main = () => {
     ApiServise.getData(`search?part=snippet&q=${selectedCategory}`).then(
       (response) => setDataVideos(response.items)
     );
-  }, []);
+  }, [selectedCategory]);
   const setSelectedCategoryHandler = (category) =>
     setSelectedCategory(category);
   return (
@@ -43,7 +51,11 @@ const Main = () => {
             {selectedCategory}
             <span style={{ color: color.secondary }}>Videos</span>
           </Typography>
-          <Videos dataVideos={dataVideos} />
+          {!dataVideos.length ? (
+            <CircularProgress className="loader" />
+          ) : (
+            <Videos dataVideos={dataVideos} />
+          )}
         </Box>
       </Container>
     </Stack>

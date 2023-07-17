@@ -1,12 +1,24 @@
-import React from "react";
 import { Paper, IconButton } from "@mui/material";
 import { color } from "../constants";
 import { Search } from "@mui/icons-material";
+import { useState } from "react";
 import "./search-panel.css";
-const searchPanel = () => {
+import { useNavigate } from "react-router-dom";
+
+const SearchPanel = () => {
+  const [val, setVal] = useState("");
+  const navigate = useNavigate();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (val) {
+      navigate(`/search/${val}`);
+    }
+    setVal("");
+  };
   return (
     <Paper
       component={"form"}
+      onSubmit={submitHandler}
       sx={{
         display: "flex",
         alignItems: "center",
@@ -15,8 +27,14 @@ const searchPanel = () => {
         boxShadow: "none",
       }}
     >
-      <input className="input" type="text" placeholder="Searching...." />
-      <IconButton>
+      <input
+        className="input"
+        value={val}
+        onChange={(e) => setVal(e.target.value)}
+        type="text"
+        placeholder="Searching...."
+      />
+      <IconButton type={"submit"}>
         <Search
           sx={{
             color: color.secondary,
@@ -27,4 +45,4 @@ const searchPanel = () => {
   );
 };
 
-export default searchPanel;
+export default SearchPanel;

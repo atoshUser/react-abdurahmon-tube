@@ -8,8 +8,9 @@ import logoSite from "../../images/site-logo-img-2.svg";
 const Navbar = () => {
   return (
     <Stack
-      direction={"row"}
+      direction={{ sm: "column", md: "row" }}
       p={"15px"}
+      height={{ sm: "20vh", md: "15vh" }}
       alignItems={"center"}
       sx={{
         position: "sticky",
