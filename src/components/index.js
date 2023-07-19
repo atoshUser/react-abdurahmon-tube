@@ -8,3 +8,5 @@ export { default as Videos } from "./videos/videos";
 export { default as VideoCard } from "./video-card/video-card";
 export { default as Search } from "./search/search";
 export {default as VideoDetail} from "./video-detail/video-detail"
+export {default as Channel} from "./channel/channel"
+export {default as ChannelAuthor} from "./channel-author/channel-author"

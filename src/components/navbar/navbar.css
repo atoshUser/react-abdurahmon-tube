@@ -5,3 +5,8 @@
   font-size: 25px;
   color: crimson;
 }
+@media screen and (max-width: 600px) {
+  .logo-text {
+    font-size: 18px;
+  }
+}

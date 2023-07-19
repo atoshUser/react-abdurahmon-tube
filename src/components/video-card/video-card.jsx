@@ -9,7 +9,9 @@ import {
 import { color } from "../constants";
 import moment from "moment";
 import { CheckCircle } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import ApiService from "../service/service.api";
 function VideoCard({ video }) {
   return (
     <Card sx={{ border: "none", boxShadow: "none" }}>
@@ -38,19 +40,22 @@ function VideoCard({ video }) {
         <Typography variant={"subtitle2"} sx={{ opacity: ".6" }}>
           {video.snippet.description.slice(0, 100)}
         </Typography>
-        <Stack
-          direction={"row"}
-          sx={{ bottom: "10px", alignItems: "center" }}
-          gap="7px"
-          position={"absolute"}
-          bottom={"10px"}
-        >
-          <Avatar src={video.snippet.thumbnails.high.url} />
-          <Typography variant={"subtitle2"} color={"grey"}>
-            {video.snippet.channelTitle}
-          </Typography>
-          <CheckCircle sx={{ fontSize: "12px", color: "grey" }} />
-        </Stack>
+
+        <Link to={`/channel/${video.snippet.channelId}`}>
+          <Stack
+            direction={"row"}
+            sx={{ bottom: "10px", alignItems: "center" }}
+            gap="7px"
+            position={"absolute"}
+            bottom={"10px"}
+          >
+            <Avatar src={video.snippet.thumbnails.high.url} />
+            <Typography variant={"subtitle2"} color={"grey"}>
+              {video.snippet.channelTitle}
+            </Typography>
+            <CheckCircle sx={{ fontSize: "12px", color: "grey" }} />
+          </Stack>
+        </Link>
       </CardContent>
     </Card>
   );

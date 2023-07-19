@@ -19,16 +19,19 @@ const SearchPanel = () => {
     <Paper
       component={"form"}
       onSubmit={submitHandler}
+      className="form"
       sx={{
         display: "flex",
         alignItems: "center",
+        padding: "0",
         pl: 2,
         border: `1px solid ${color.secondary}`,
         boxShadow: "none",
+        width: { md: "400px" },
       }}
     >
       <input
-        className="input"
+        className="input "
         value={val}
         onChange={(e) => setVal(e.target.value)}
         type="text"

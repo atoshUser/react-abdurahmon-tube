@@ -15,7 +15,6 @@ const Main = () => {
   const [dataVideos, setDataVideos] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("New");
 
- 
   useEffect(() => {
     // const getData = async () => {
     //   try {

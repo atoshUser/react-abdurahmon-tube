@@ -1,6 +1,14 @@
 import { Box } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
-import { SiteMain, About, Navbar, Search, VideoDetail } from "../index.js";
+import {
+  SiteMain,
+  About,
+  Navbar,
+  Search,
+  VideoDetail,
+  Channel,
+  VideoCard,
+} from "../index.js";
 function App() {
   return (
     <Box>
@@ -10,7 +18,9 @@ function App() {
         <Route path="/" element={<SiteMain />} />
         <Route path="/about/:id" element={<About />} />
         <Route path="/navbar/:id" element={<Navbar />} />
-        <Route path="/video/:id" element={<VideoDetail/>} />
+        <Route path="/video/:id" element={<VideoDetail />} />
+        <Route path="/channel/:id" element={<Channel />} />
+        <Route path="/video-card/:id" element={<VideoCard />} />
       </Routes>
     </Box>
   );
